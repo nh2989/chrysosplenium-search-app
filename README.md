@@ -2,7 +2,7 @@
 
 > いがりまさし『日本のネコノメソウ』（2024）掲載の検索表をベースにした、スマートフォン対応の種同定Webアプリ。
 
-🌐 **公開URL**: `https://{ユーザー名}.github.io/{リポジトリ名}/`
+🌐 **公開URL**: `https://nh2989.github.io/chrysosplenium-search-app/`
 
 ---
 
@@ -58,7 +58,7 @@ git init
 git add .
 git commit -m "first commit"
 git branch -M main
-git remote add origin https://github.com/{ユーザー名}/{リポジトリ名}.git
+git remote add origin https://github.com/nh2989/chrysosplenium-search-app.git
 git push -u origin main
 ```
 
@@ -74,7 +74,7 @@ Build and deployment
   Branch:  main  /  (root)
 ```
 
-4. 数分後に `https://github.com/nh2989/chrysosplenium-search-app` で公開される
+4. 数分後に `https://nh2989.github.io/chrysosplenium-search-app/` で公開される
 
 > ⚠️ `.nojekyll` ファイルが必須。ないと `data/` フォルダ内の JS ファイルが 404 になる。
 
