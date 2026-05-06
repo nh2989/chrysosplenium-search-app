@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本産ネコノメソウ属検索表</title>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2d5016">
+    <meta name="apple-mobile-web-app-title" content="ネコノメ検索">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <link rel="icon" href="icon-192.png">
+    <!-- スタイルシート -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌿 日本産ネコノメソウ属検索表</h1>
+            <p>いがりまさし『日本のネコノメソウ』より（全20種収録）</p>
+        </div>
+
+        <div class="content">
+            <div id="breadcrumb" class="breadcrumb" style="display:none;"></div>
+            <div id="main-content">
+
+                <!-- 初期画面: 属選択 -->
+                <div id="genus-selection">
+                    <div class="intro-text">
+                        <h3>📚 検索の流れ</h3>
+                        <p>属を選択すると検索を開始します。二択または三択の質問に順番に答えることで種を同定します。</p>
+                        <p style="margin-top:10px;">
+                            <strong>収録内容:</strong> ネコノメソウ属 <em>Chrysosplenium</em> 全20種（日本産全種）
+                        </p>
+                        <p style="margin-top:10px; font-size:0.85em; color:#666;">
+                            💡 属カードをタップして概要を確認し、「検索を開始」ボタンでスタート
+                        </p>
+                    </div>
+                    <div id="genus-grid" class="genus-grid"></div>
+                </div>
+
+                <!-- 検索画面 -->
+                <div id="search-area" style="display:none;">
+                    <div id="question-area"></div>
+                    <div id="options-area" class="options"></div>
+                    <div id="result-area"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="back-btn"  class="btn btn-back"  style="display:none;">⬅ 戻る</button>
+                <button id="reset-btn" class="btn btn-reset" style="display:none;">🔄 最初から</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 属一覧データ -->
+    <script src="data/genera.js"></script>
+    <!-- メインスクリプト -->
+    <script src="app.js"></script>
+</body>
+</html>
