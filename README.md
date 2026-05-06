@@ -74,7 +74,7 @@ Build and deployment
   Branch:  main  /  (root)
 ```
 
-4. 数分後に `https://{ユーザー名}.github.io/{リポジトリ名}/` で公開される
+4. 数分後に `https://github.com/nh2989/chrysosplenium-search-app` で公開される
 
 > ⚠️ `.nojekyll` ファイルが必須。ないと `data/` フォルダ内の JS ファイルが 404 になる。
 
