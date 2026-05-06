@@ -1,0 +1,17 @@
+#!/bin/sh
+# ==============================================
+# pre-commit フック
+# コミットのたびに sw.js の CACHE_VERSION を
+# 現在の日時で自動更新する
+# ==============================================
+
+TIMESTAMP=$(date +"%Y%m%d-%H%M")
+NEW_VERSION="v${TIMESTAMP}"
+
+# sw.js の CACHE_VERSION を置換
+sed -i "s/const CACHE_VERSION = '[^']*'/const CACHE_VERSION = '${NEW_VERSION}'/" sw.js
+
+# 更新した sw.js をコミットに含める
+git add sw.js
+
+echo "✅ CACHE_VERSION を ${NEW_VERSION} に更新しました"

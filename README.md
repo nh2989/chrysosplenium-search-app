@@ -22,6 +22,8 @@
 
 ```
 nekonome/
+├── .githooks/
+│   └── pre-commit        # コミット時に CACHE_VERSION を自動更新
 ├── .nojekyll             # Jekyll 処理を無効化（GitHub Pages 必須）
 ├── index.html            # エントリーポイント
 ├── app.js                # メインロジック
@@ -89,19 +91,35 @@ Build and deployment
 
 ---
 
+### CACHE_VERSION の自動更新（初回のみ設定）
+
+コミットのたびに `sw.js` の `CACHE_VERSION` を日時で自動更新する Git フックを用意している。
+リポジトリをクローン・初期化した後、以下のコマンドを **1回だけ** 実行する。
+
+```bash
+# フックを有効化（リポジトリのルートで実行）
+git config core.hooksPath .githooks
+chmod +x .githooks/pre-commit
+```
+
+設定後は `git commit` のたびに自動で以下のように更新される。
+
+```
+✅ CACHE_VERSION を v20260506-1430 に更新しました
+```
+
 ### コンテンツ更新時の手順
 
-データや UI を修正したらプッシュするだけで反映される。ただし Service Worker のキャッシュを更新するため `sw.js` の `CACHE_VERSION` を必ず上げること。
+フック設定済みであれば `CACHE_VERSION` の手動変更は不要。
 
 ```bash
 # 1. ファイルを編集する
 
-# 2. sw.js の CACHE_VERSION を更新（例: 'v1' → 'v2'）
-#    ※ 省略すると利用者の端末に古いキャッシュが残り続ける
-
-# 3. コミット＆プッシュ
+# 2. コミット（CACHE_VERSION が自動更新される）
 git add .
 git commit -m "データ更新: 変種を追加"
+
+# 3. プッシュ
 git push
 ```
 
